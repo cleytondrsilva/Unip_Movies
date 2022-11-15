@@ -78,7 +78,7 @@ function Filme(){
         <button onClick={salvarFilme}>Salvar</button>
         <button>
           <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${filme.title} Trailer`}>
-            Trailer
+            Youtube
           </a>
         </button>
       </div>

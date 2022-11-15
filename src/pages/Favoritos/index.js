@@ -30,6 +30,7 @@ function Favoritos(){
 
       {filmes.length === 0 && <span>Você não possui nenhum filme salvo :( </span>}
 
+      <img src={`https://image.tmdb.org/t/p/original/${filmes.backdrop_path}`} alt={filmes.title} />
       <ul>
         {filmes.map((item) => {
           return(
