@@ -1,39 +1,120 @@
 
-.meus-filmes{
-  margin-top: 24px;
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+}
+.formSearch{
+  display: flex;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  
+}
+.formSearch input{
+  font-size: 14px;
+}
+.formSearch button{
+  font-size: 14px;
+  transition: all 0.5s;
+}
+.formSearch button:hover{
+  background-color: rgb(187, 89, 8);
+  color: #FFF;
+}
+.formSearch a:hover{
+  color: #FFF;
+}
+.listFavorite{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #FFE500;
+  padding: 30px;
+  margin-top: 250px;
+  margin-bottom: 30px;
+  width: 60%;
+  min-width: 350px;
+  height: auto;
+  border-radius: 10px;
+}
+.listFavorite h1{
+  margin: 20px 0px;
+  font-size: 20px;
+}
+.listFavorite ul{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
 }
 
-.meus-filmes h1{
-  margin-bottom: 14px;
-}
-
-.meus-filmes span{
-  font-size: 18px;
-}
-
-.meus-filmes ul{
-  width: 720px;
-}
-
-.meus-filmes ul li{
+.listFavorite ul li{
   list-style: none;
   display: flex;
+  align-items: center;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: -2px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
 }
 
-.meus-filmes div{
+.listFavorite span{
   display: flex;
+  align-items: center;
+  padding: 5px;
+  font-size: 16px;
+  min-width: 155px;
+}
+.listFavorite img{
+  width: 60px;
+  height: 70px;
+  margin-right: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 22px;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 5px;
+}
+.listFavorite div{
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.meus-filmes div a {
+.listFavorite div a {
+  display: flex;
   text-decoration: none;
+  color: #000;
+  margin-right: 16px;
+  width: 100%;
+  transition: all 0.5s;
+}
+.listFavorite div a:hover{
   color: #116feb;
-  margin-right: 14px;
+}
+.listFavorite div button{
+  width: 100%;
+  min-width: 70px;
+  font-size: 14px;
+  transition: all 0.5s;
+}
+.listFavorite div button:hover{
+  background-color: rgb(187, 89, 8);
+  color: #FFF;
+}
+.container button a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  text-decoration: none;
+  width: 100%;
+  color: black;
 }

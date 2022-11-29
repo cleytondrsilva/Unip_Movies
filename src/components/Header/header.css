@@ -2,11 +2,11 @@
 header{
   display: flex;
   position: fixed;
+  top: 0px;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 120px;
-  margin: 0px;
   background-color: #FFE600;
 }
 

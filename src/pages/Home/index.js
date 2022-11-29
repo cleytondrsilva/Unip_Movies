@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { Link, redirect, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
@@ -7,34 +7,38 @@ import api from "../../services/api";
 import "./home.css";
 
 // URL DA API: /movie/now_playing?api_key=28fc232cc001c31e8a031f419d0a14ca&language=pt-BR
+//discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22
 
 function Home() {
   const [filmes, setFilmes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
   const [page, setPage] = useState(1);
   const carousel = useRef(null);
+  
+  const dateAtual = new Date();
+  const dateDia = dateAtual.getDate();
+  const dateMonth = dateAtual.getMonth() + 1;
+  const dateYear = dateAtual.getFullYear();
 
-  //console.log(page);
+  //console.log(filmes);
 
   useEffect(() => {
     async function loadFilmes() {
-      const response = await api.get("movie/now_playing", {
+      const response = await api.get(`discover/movie?primary_release_date.gte=${dateYear}-${dateMonth - 1}-${dateDia}&primary_release_date.lte=${dateYear}-${dateMonth}-${dateDia}`, {
         params: {
           api_key: "28fc232cc001c31e8a031f419d0a14ca",
           language: "pt-BR",
           page: `${page}`,
         },
       });
-      //discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22
-      //console.log(response.data.results.slice(0, 20));
+            
       setFilmes(response.data.results.slice(0, 20));
       setLoading(false);
     }
 
     loadFilmes();
-  }, [page]);
+  }, [page, dateDia, dateMonth, dateYear]);
 
   async function handleSearch(e) {
     e.preventDefault();
@@ -54,7 +58,7 @@ function Home() {
       toast.error("Filme não encontrado!");
     }
 
-    //setSearch('');
+    setSearch('');
   }
 
   if (loading) {
@@ -101,33 +105,6 @@ function Home() {
         })}
       </div>
 
-      {/*searchResult.length === 0 ?
-        <div className="container">
-          <div className="listar-filmes">
-            {filmes.map((filme) => {
-              return(
-                <article key={filme.id}>
-                  <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title} />
-                  <Link to={`/filme/${filme.id}`}>Acessar</Link>
-                </article>
-              )
-            })}
-          </div>
-        </div>
-        :
-        <div className="container">
-          <div className="listar-filmes">
-            {searchResult.map((filme) => {
-              return(
-                <article key={filme.id}>
-                  <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`} alt={filme.title} />
-                  <Link to={`/filme/${filme.id}`}>Acessar</Link>
-                </article>
-              )
-            })}
-          </div>
-        </div> 
-          */}
         <div className="containerPagination">
             <button
               type="button"
@@ -144,7 +121,7 @@ function Home() {
         </div>
         
         <div className="homeFavoritos">
-          <Link to="/favoritos">FAVORITOS</Link>
+          <Link to="/favoritos">Favoritos</Link>
         </div>
     </div>
   );

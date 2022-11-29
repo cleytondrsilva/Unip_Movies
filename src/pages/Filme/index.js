@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import './filme-info.css';
 import api from '../../services/api';
 import { toast } from 'react-toastify'
@@ -85,9 +85,13 @@ function Filme(){
           <button onClick={salvarFilme}>Salvar</button>
           <button>
             <a target="blank" rel="external" href={`https://youtube.com/results?search_query=${filme.title} Trailer`}>
-              Youtube
+              Trailer
             </a>
           </button>
+          <button>
+            <Link to="/">Inicio</Link>
+          </button>
+          
         </div>
 
       </div>

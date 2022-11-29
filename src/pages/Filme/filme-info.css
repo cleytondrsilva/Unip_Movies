@@ -14,11 +14,15 @@
   
 }
 .containerContent img{
-  border-radius: 8px;
   margin-top: 10px;
-  width: 1000px;
-  height: 400px;
-  max-width: 100%;
+  width: 380px;
+  min-width: 380px;
+  height: 500px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 86px;
+  border-bottom-left-radius: 86px;
+  border-bottom-right-radius: 8px;
+  
   object-fit: cover;
   align-items: center;
   justify-content: center;
@@ -40,27 +44,55 @@
   text-align: justify;
   margin-bottom: 10px;
 }
+.area-buttons{
+  align-items: center;
+  justify-content: center;
+  
+}
 .area-buttons button {
-  margin-right: 12px;
-  margin-top: 14px;
-  margin-left: 0;
-  font-size: 20px;
-  border: 0;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 5px;
+  font-size: 14px;
   outline: none;
-  padding: 12px;
-  border-radius: 4px;
+  padding: 7px 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: all 0.5s;
+  height: auto;
+  width: 110px;
 }
 .area-buttons button:hover{
-  background-color: brown;
+  background-color: rgb(187, 89, 8);
   color: #FFF;
 }
 .area-buttons a{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color:#000;
   transition: all 0.5s;
+  width: 100px;
+ 
 }
 .area-buttons a:hover{
   color: #FFF;
+}
+
+@media (max-width: 415px){
+  .containerContent img{
+    margin-top: 10px;
+    width: 160px;
+    min-width: 160px;
+    height: 210px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 86px;
+    border-bottom-left-radius: 86px;
+    border-bottom-right-radius: 8px;
+    
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+  }
 }
