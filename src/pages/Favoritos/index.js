@@ -16,8 +16,7 @@ function Favoritos() {
   const filterFilmes = filmes.filter((filme) =>
     filme.original_title.toLowerCase().includes(lowerSearch)
   );
-  console.log(filterFilmes);
-
+  
   function excluirFilme(id) {
     const minhaLista = localStorage.getItem("@unipmovies");
     setFilmes(JSON.parse(minhaLista) || []);

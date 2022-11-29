@@ -21,8 +21,6 @@ function Home() {
   const dateMonth = dateAtual.getMonth() + 1;
   const dateYear = dateAtual.getFullYear();
 
-  //console.log(filmes);
-
   useEffect(() => {
     async function loadFilmes() {
       const response = await api.get(`discover/movie?primary_release_date.gte=${dateYear}-${dateMonth - 1}-${dateDia}&primary_release_date.lte=${dateYear}-${dateMonth}-${dateDia}`, {
@@ -52,7 +50,6 @@ function Home() {
     });
 
     setFilmes(response.data.results.slice(0, 20));
-    //console.log(response);
 
     if (response.data.results.length === 0) {
       toast.error("Filme não encontrado!");
