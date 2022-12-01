@@ -35,7 +35,7 @@
   justify-content: center;
   text-align: center;
   background-color: #FFE500;
-  padding: 30px;
+  padding: 15px;
   margin-top: 250px;
   margin-bottom: 30px;
   width: 60%;
@@ -95,6 +95,7 @@
   margin-right: 16px;
   width: 100%;
   transition: all 0.5s;
+  font-size: 14px;
 }
 .listFavorite div a:hover{
   color: #116feb;
@@ -117,4 +118,20 @@
   text-decoration: none;
   width: 100%;
   color: black;
+}
+
+@media (max-width: 450px){
+  .formSearch input{
+    width: 80%;
+  }
+  .listFavorite{
+    margin-top: 200px;
+    width: 95%;
+  }
+  .listFavorite span{
+    font-size: 14px;
+  }
+  .listFavorite div a {
+    font-size: 14px;
+  }
 }

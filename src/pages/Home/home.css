@@ -143,3 +143,12 @@ button{
   font-size: 14px;
   width: 100%;
 }
+
+@media (max-width: 450px){
+  form{
+    margin-top: 80px;
+  }
+  input{
+    width: 80%;
+  }
+}
