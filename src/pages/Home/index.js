@@ -30,14 +30,31 @@ function Home() {
           page: `${page}`,
         },
       });
-            
-      setFilmes(response.data.results.slice(0, 20));
-      setLoading(false);
+      
+      if(response.data.results.length === 0){
+
+        const response = await api.get(`movie/now_playing?api_key=28fc232cc001c31e8a031f419d0a14ca&language=pt-BR`, {
+          params: {
+            api_key: "28fc232cc001c31e8a031f419d0a14ca",
+            language: "pt-BR",
+            page: `${page}`,
+          },
+        });
+      
+        setFilmes(response.data.results.slice(0, 20));
+        setLoading(false);
+      }
+      else{
+        setFilmes(response.data.results.slice(0, 20));
+        setLoading(false);
+      }
+      
     }
 
     loadFilmes();
   }, [page, dateDia, dateMonth, dateYear]);
 
+  
   async function handleSearch(e) {
     e.preventDefault();
 
